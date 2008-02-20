@@ -11,14 +11,14 @@ create_cashflows_matrix(group, include_price = FALSE)
 }
 
 \arguments{
-  \item{group}{group name}
-  \item{include_price}{if \code{TRUE} the dirty price is included }
+  \item{group}{group name.}
+  \item{include_price}{if \code{TRUE} the dirty price is included (default: \code{FALSE}).}
 }
 
 
-\value{matrix}
+\value{Returns a matrix which consits of the calculated cashflows.}
 
-\author{Robert Ferstl, Josef Hayden}
+%\author{Robert Ferstl, Josef Hayden}
 %\note{ }
 \seealso{\code{\link{create_maturities_matrix}} }
 %\examples{}

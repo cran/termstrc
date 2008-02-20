@@ -4,7 +4,7 @@
 
 create_cashflows_matrix <- function(group,include_price=FALSE) {
   
-  n_of_cf <- summary(as.factor(group$CASHFLOWS$ISIN))
+  n_of_cf <- summary(factor(group$CASHFLOWS$ISIN,levels=group$ISIN))
   n_of_bonds <- length(n_of_cf)
   max_cf <- max(n_of_cf)
   pos_cf <- c(0,cumsum(n_of_cf))
@@ -31,7 +31,7 @@ create_cashflows_matrix <- function(group,include_price=FALSE) {
 create_maturities_matrix <-
   function(group,include_price=FALSE) {
 
-  n_of_cf <- summary(as.factor(group$CASHFLOWS$ISIN))
+  n_of_cf <- summary(factor(group$CASHFLOWS$ISIN,levels=group$ISIN))
   n_of_bonds <- length(n_of_cf)
   max_cf <- max(n_of_cf)
   pos_cf <- c(0,cumsum(n_of_cf))
@@ -57,7 +57,7 @@ create_maturities_matrix <-
 #              bond yields for a given group                      #
 ###################################################################
 
-bond_yields <- function(cashflows, m, tol=1e-10) {
+bond_yields <- function(cashflows, m, searchint=c(-1,1), tol=1e-10) {
 
   # convert input data to matrices if necessary
   if (!is.matrix(cashflows))
@@ -81,7 +81,7 @@ bond_yields <- function(cashflows, m, tol=1e-10) {
 
     # calculate bond yields
     
-    bondyields[i,2] <- uniroot(pvcashflows, c(0, 1), tol = tol,maxiter=3000)$root 
+    bondyields[i,2] <- uniroot(pvcashflows, searchint, tol = tol,maxiter=3000)$root 
   }
 
   # return calculated bond yields matrix
@@ -175,9 +175,11 @@ bonddata_range
 duration <-
 function (cf_p,m_p,y) {
        y <- matrix(rep(y,nrow(m_p)),ncol=ncol(m_p),byrow=TRUE)
+       # mac cauly duration
        d <- apply(cf_p*m_p*exp(-y*m_p),2,sum)/-cf_p[1,]
+       # modified duration
        md <- d/(1+y[1,])
-       omega <- (1/md)*sum(1/md)
+       omega <- (1/d)/sum(1/d)
        dur <- cbind(d,md,omega)
        colnames(dur) <- c("Duration","Modified duration","Weights")
        dur
@@ -193,6 +195,29 @@ function (cf_p,m_p,y) {
  	"Nelson/Siegel" = nelson_siegel(beta,m),
  	"Svensson" = svensson(beta,m))
   }
+	
+###################################################################
+#                 Forwardrate calculation                         #
+###################################################################
+
+ forwardrates <- function(method,beta,m){ 
+  switch(method,
+ 	"Nelson/Siegel" = fwr_ns(beta,m),
+ 	"Svensson" = fwr_sv(beta,m))
+  }
+  
+###################################################################
+#              Implied forward rate calculation                   #
+###################################################################
+
+impl_fwr <- function(m,s) {
+	
+impl_fwr <- c(s[1],(s[-1]*m[-1] - s[-length(s)]*m[-length(m)])/(diff(m)))
+impl_fwr[1] <- impl_fwr[2]
+impl_fwr	
+	
+	}
+  	
 	
 ###################################################################
 #                   Bond pricing function                         #
@@ -285,6 +310,26 @@ function(t,T,i,s){
   g
 }
 
+###################################################################
+#                    Bond removal function                        #
+###################################################################
 
+rm_bond <- function(bdata,ISIN,gr){
+    cf_isin_index <- which(bdata[[gr]]$CASHFLOWS$ISIN %in% ISIN)
+ 	isin_index <- which(bdata[[gr]]$ISIN %in% ISIN)	
+
+    	bdata[[gr]]$ISIN <-  bdata[[gr]]$ISIN[-isin_index]
+    	bdata[[gr]]$MATURITYDATE <- bdata[[gr]]$MATURITYDATE[-isin_index]
+    	bdata[[gr]]$STARTDATE <- bdata[[gr]]$STARTDATE[-isin_index]
+    	bdata[[gr]]$COUPONRATE <- bdata[[gr]]$COUPONRATE[-isin_index]
+    	bdata[[gr]]$PRICE <- bdata[[gr]]$PRICE[-isin_index]
+    	bdata[[gr]]$ACCRUED <- bdata[[gr]]$ACCRUED[-isin_index]
+
+		bdata[[gr]]$CASHFLOWS$ISIN <- bdata[[gr]]$CASHFLOWS$ISIN[-cf_isin_index]
+		bdata[[gr]]$CASHFLOWS$CF <- bdata[[gr]]$CASHFLOWS$CF[-cf_isin_index]
+		bdata[[gr]]$CASHFLOWS$DATE <- bdata[[gr]]$CASHFLOWS$DATE[-cf_isin_index]
+	
+	bdata
+}
 
 

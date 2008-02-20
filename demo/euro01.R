@@ -1,18 +1,14 @@
 data(eurobonds)
 
-
 group <- c("GERMANY", "AUSTRIA", "ITALY")
 bonddata <- eurobonds
-matrange <- c(2,10)
+matrange <- c(2,12)
 method <- "Nelson/Siegel"
 fit <- "prices"
-weights <- "none"
-control <- list(eval.max=100000)
+weights <- "duration"
+control <- list(eval.max=100000, iter.max=500)
 
-b <- matrix(c(0.02547394, -0.012162592, -0.02547394,    1,
- 			0.02611532, -0.011367422, -0.02611532,    1,
-			0.02578871, -0.015207250, -0.02578871,    1),
-			nrow=3,ncol=4,byrow=TRUE)
+b <- matrix(rep(c(0,0,0, 1),3),nrow=3,byrow=TRUE)
 			
 rownames(b) <- group
 
@@ -23,5 +19,5 @@ x <- nelson_estim(group, bonddata, matrange,
 
 print(x)
 summary(x)
-plot(x,pdf=TRUE)
+plot(x,errors="none")
 

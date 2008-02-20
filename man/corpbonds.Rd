@@ -11,23 +11,23 @@ AA, AA-, A+, A, A-, BBB+, BBB, BBB-
 }
 
 \note{
-If you use your own dataset, make sure that the structure is identical to the provided data sets.
+If you use your own data set, make sure that the structure is identical to the provided data sets.
 Use the function \code{str()} to explore the data set. 
  
 Every element of the list except \code{$RATING, $NAME} is required for the estimation. The elements 
 \code{$COUPONRATE, $PRICE} are not necessarily required. The calculation of the accrued interest 
-is not implemented and has therefore be provided by the user. For the provided datasets the list element
-\code{$ACCRUED} includes the accrued interests. 
+is not implemented and has therefore be provided by the user. For the provided data sets the list element
+\code{$ACCRUED} includes the accrued interest. 
 }
 
-\seealso{ \code{\link{eurobonds}}}
+\seealso{ \code{\link{eurobonds}}, \code{\link{govbonds}}}
 
 \examples{
 data(corpbonds)
 str(corpbonds) 
 
 
-# You may use this to generate an empty data set,
+# The following code may use this to generate an empty data set,
 # which can be filled with bond data:
 
 ISIN <- vector()

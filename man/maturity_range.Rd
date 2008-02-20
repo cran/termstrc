@@ -1,7 +1,7 @@
 \name{maturity_range}
 \alias{maturity_range}
 
-\title{Maturity Range for Bond Data Set }
+\title{Restricting a Bond Dataset }
 
 \description{
    The function restricts a bond data set to a specified maturity range.
@@ -11,9 +11,9 @@ maturity_range(bonddata, lower, upper)
 }
 
 \arguments{
-  \item{bonddata}{bond dataset}
-  \item{lower}{lower bound of maturity spectrum}
-  \item{upper}{upper bound of maturity spectrum}
+  \item{bonddata}{bond data set.}
+  \item{lower}{lower bound of maturity spectrum.}
+  \item{upper}{upper bound of maturity spectrum.}
 }
 
 
@@ -23,7 +23,7 @@ maturity_range(bonddata, lower, upper)
 
 %\references{ }
 
-\author{Robert Ferstl, Josef Hayden}
+%\author{Robert Ferstl, Josef Hayden}
 
 %\note{}
 

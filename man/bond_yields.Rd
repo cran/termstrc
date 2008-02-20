@@ -6,27 +6,26 @@
 \description{Function for the calculation of bond yields.}
 
 \usage{
-bond_yields(cashflows, m, tol = 1e-10)
+bond_yields(cashflows, m, searchint = c(-1, 1), tol = 1e-10)
 }
 
 \arguments{
-  \item{cashflows}{ matrix with the bonds cashflows }
-  \item{m}{maturity matrix}
-  \item{tol}{desired accuracy for function \code{uniroot} }
+  \item{cashflows}{ matrix with the bonds cashflows.}
+  \item{m}{maturity matrix.}
+  \item{searchint}{search interval for root finding.}
+  \item{tol}{desired accuracy for function \code{uniroot}.}
 }
 %\details{}
 
 \value{
-matrix with the bond yields and the associated maturities 
+The function returns a matrix with the bond yields and the associated maturities. 
 }
 
-\references{David Bolder and David Streliski (1999): Yield Curve Modelling at the Bank of Canada.\emph{Technical Report No 84 Bank of Canada}}
+%\references{}
 
-\author{Robert Ferstl, Josef Hayden }
+%\author{Robert Ferstl, Josef Hayden }
 %\note{}
 
 \seealso{ \code{\link{uniroot}}}
-\examples{
-
-}
+%\examples{}
 \keyword{ }
