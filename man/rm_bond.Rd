@@ -21,4 +21,4 @@ rm_bond(bdata, ISIN, gr)
 %\seealso{}
 %\examples{}
 
-\keyword{  }
+

@@ -13,7 +13,7 @@ bond_yields(cashflows, m, searchint = c(-1, 1), tol = 1e-10)
   \item{cashflows}{ matrix with the bonds cashflows.}
   \item{m}{maturity matrix.}
   \item{searchint}{search interval for root finding.}
-  \item{tol}{desired accuracy for function \code{uniroot}.}
+  \item{tol}{desired accuracy for function \command{uniroot}.}
 }
 %\details{}
 
@@ -26,6 +26,6 @@ The function returns a matrix with the bond yields and the associated maturities
 %\author{Robert Ferstl, Josef Hayden }
 %\note{}
 
-\seealso{ \code{\link{uniroot}}}
+\seealso{ \command{\link{uniroot}}}
 %\examples{}
-\keyword{ }
+

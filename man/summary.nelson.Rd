@@ -3,27 +3,26 @@
 
 \title{ S3 Summary Method }
 \description{
-  S3 summary method for objects of the class \code{"nelson"}.
+  S3 summary method for objects of the class \command{"nelson"}.
 }
 \usage{
 \method{summary}{nelson}(object,...)
 }
 
 \arguments{
-  \item{object}{object of the class \code{"nelson"}.}
+  \item{object}{object of the class \command{"nelson"}.}
   \item{\dots}{other arguments.}
 }
 \details{
-  The summary method for an object of the class \code{"nelson"} prints the solution of
+  The summary method for an object of the class \command{"nelson"} prints the solution of
  the goodness of fit statistics (RMSE,AABSE) of the optimisation. Moreover a convergence information of the used
- optimiser (\code{nlminb}) is printed. 
+ optimiser (\command{nlminb}) is printed. 
 }
 %\value{}
 %\references{ }
 %\author{Robert Ferstl, Josef Hayden }
 %\note{}
-\seealso{ \code{\link{nlminb}}, \code{\link{plot.nelson}}, \code{\link{print.nelson}}, \code{\link{rmse}}, \code{\link{aabse}}}
+\seealso{ \command{\link{nlminb}}, \command{\link{plot.nelson}}, \command{\link{print.nelson}}, \command{\link{rmse}}, \command{\link{aabse}}}
 %\examples{}
 
-\keyword{ }
 

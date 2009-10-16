@@ -28,5 +28,4 @@ Parsimonious Modeling of Yield Curves.
 \seealso{\code{\link{fwr_sv}}, \code{\link{forwardrates}}}
 %\examples{}
 
-\keyword{  }
 

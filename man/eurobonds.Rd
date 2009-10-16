@@ -7,15 +7,15 @@
 \usage{data(eurobonds)}
 
 \details{
-The data set \code{eurobonds} consists of German, Austrian, Italian and Hungarian government bonds.
+The data set \command{eurobonds} consists of German, Austrian, Italian and Hungarian government bonds.
 }
 
 \note{
 If you use your own data set, make sure that the structure is identical to the provided data sets.
-Use the function \code{str()} to explore the data set.}
+Use the function \command{str()} to explore the data set.}
 
 
-\seealso{\code{\link{corpbonds}}, \code{\link{govbonds}}}
+\seealso{\command{\link{corpbonds}}, \command{\link{govbonds}}}
 
 \examples{
 data(corpbonds)

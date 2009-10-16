@@ -14,7 +14,7 @@ spotrates(method, beta, m)
 
 
 \arguments{
-  \item{method}{\code{"Nelson/Siegel"} or \code{"Svensson"}.}
+  \item{method}{\command{"Nelson/Siegel"} or \command{"Svensson"}.}
   \item{beta}{ parameter set \eqn{\bm{\beta}}.}
   \item{m}{maturity or a vector of maturities.}
 }
@@ -47,4 +47,3 @@ Estimating and Interpreting Forward Interest Rates: Sweden 1992 -1994.
 
 %\examples{}
 
-\keyword{ }

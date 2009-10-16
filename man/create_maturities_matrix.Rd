@@ -12,8 +12,8 @@ create_maturities_matrix(group, include_price = FALSE)
 }
 
 \arguments{
-  \item{group}{name of the group of bonds (default: \code{FALSE}).}
-  \item{include_price}{if \code{TRUE} the dirty price is included.}
+  \item{group}{name of the group of bonds (default: \command{FALSE}).}
+  \item{include_price}{if \command{TRUE} the dirty price is included.}
 }
 
 
@@ -25,7 +25,7 @@ create_maturities_matrix(group, include_price = FALSE)
 
 %\note{ }
 
-\seealso{\code{\link{create_cashflows_matrix}}}
+\seealso{\command{\link{create_cashflows_matrix}}}
 
 %\examples{}
-\keyword{ }
+

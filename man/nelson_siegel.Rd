@@ -31,5 +31,5 @@ of Business}, \bold{60(4)}:473--489.}
 
 nelson_siegel(rep(0.01,4),1:30)
 }
-\keyword{  }
+
 

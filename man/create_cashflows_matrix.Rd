@@ -12,7 +12,7 @@ create_cashflows_matrix(group, include_price = FALSE)
 
 \arguments{
   \item{group}{group name.}
-  \item{include_price}{if \code{TRUE} the dirty price is included (default: \code{FALSE}).}
+  \item{include_price}{if \command{TRUE} the dirty price is included (default: \command{FALSE}).}
 }
 
 
@@ -20,7 +20,6 @@ create_cashflows_matrix(group, include_price = FALSE)
 
 %\author{Robert Ferstl, Josef Hayden}
 %\note{ }
-\seealso{\code{\link{create_maturities_matrix}} }
+\seealso{\command{\link{create_maturities_matrix}} }
 %\examples{}
-\keyword{ }
 

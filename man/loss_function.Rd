@@ -14,8 +14,8 @@ loss_function(p, phat, omega, weights)
   \item{p}{vector of observed prices (yields).}
   \item{phat}{vector of estimated prices (yields).}
   \item{omega}{weights vector. }
-  \item{weights}{if \code{"none"} the squared deviation of \code{p} and
-    \code{phat} is not weighted, use \code{"duration"} for a duration weighted optimisation.}
+  \item{weights}{if \command{"none"} the squared deviation of \command{p} and
+    \command{phat} is not weighted, use \command{"duration"} for a duration weighted optimisation.}
 }
 %\details{
 % 
@@ -25,4 +25,4 @@ loss_function(p, phat, omega, weights)
 %\note{ }
 %\seealso{ }
 %\examples{}
-\keyword{}
+

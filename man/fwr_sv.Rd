@@ -27,7 +27,6 @@ Estimating and Interpreting Forward Interest Rates: Sweden 1992 -1994.
 \emph{Technical Reports 4871, National Bureau of Economic Research}.   }
 %\author{ Robert Ferstl, Josef Hayden }
 %\note{ }
-\seealso{\code{\link{fwr_ns}}, \code{\link{forwardrates}}}
+\seealso{\command{\link{fwr_ns}}, \command{\link{forwardrates}}}
 %\examples{}
 
-\keyword{  }

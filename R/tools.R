@@ -119,7 +119,8 @@ names(isins_range_pos) <- names(bonddata)
 
 # first part of bonddata for filtering
 
-N <- which(names(bonddata[[1]]) %in% c("ISIN","MATURITYDATE","STARTDATE","COUPONRATE","PRICE","ACCRUED"))
+N <- which(names(bonddata[[1]]) %in% c("ISIN","MATURITYDATE","STARTDATE",
+     "COUPONRATE","PRICE","ACCRUED"))
 
 first <- function(lst) lst[N]
 filtered <- lapply(bonddata,first)
@@ -275,7 +276,8 @@ function(t,T,i,s){
   for(j in seq_along(t)){
     if(i==1){
     if(T[i]<=t[j]&t[j]<T[i+1]){
-     g[j] <- (T[i])^2/6 + ((T[i])*(t[j]-T[i]))/2 + (t[j]-T[i])^2/2 - (t[j]-T[i])^3/(6*(T[i+1]-T[i]))
+     g[j] <- (T[i])^2/6 + ((T[i])*(t[j]-T[i]))/2 + (t[j]-T[i])^2/2 
+     - (t[j]-T[i])^3/(6*(T[i+1]-T[i]))
     }
     if(t[j]>=T[i+1]){
      g[j] <- (T[i+1])*((2*T[i+1]-T[i])/6 + (t[j]-T[i+1])/2)
@@ -289,7 +291,8 @@ function(t,T,i,s){
      g[j] <- (t[j]-T[i-1])^3/(6*(T[i]-T[i-1]))
     }
     if(T[i]<=t[j]&t[j]<T[i+1]){
-     g[j] <- (T[i]-T[i-1])^2/6 + ((T[i]-T[i-1])*(t[j]-T[i]))/2 + (t[j]-T[i])^2/2 - (t[j]-T[i])^3/(6*(T[i+1]-T[i]))
+     g[j] <- (T[i]-T[i-1])^2/6 + ((T[i]-T[i-1])*(t[j]-T[i]))/2 + (t[j]-T[i])^2/2
+      - (t[j]-T[i])^3/(6*(T[i+1]-T[i]))
     }
     if(t[j]>=T[i+1]){
      g[j] <- (T[i+1]-T[i-1])*((2*T[i+1]-T[i]-T[i-1])/6 + (t[j]-T[i+1])/2)

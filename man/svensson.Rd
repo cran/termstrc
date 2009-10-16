@@ -27,4 +27,4 @@ Estimating and Interpreting Forward Interest Rates: Sweden 1992 -1994.
 \examples{
  svensson(c(0.07,0.3,0.05,0.1,0.08,0.2),1:30)
 }
-\keyword{}
+

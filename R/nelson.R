@@ -47,7 +47,8 @@ nelson_estim <-
                 sgroup,SIMPLIFY=FALSE)
   
   # calculate dirty prices
-  p <- mapply(function(k) bonddata[[k]]$PRICE + bonddata[[k]]$ACCRUED,sgroup,SIMPLIFY=FALSE)
+  p <- mapply(function(k) bonddata[[k]]$PRICE + bonddata[[k]]$ACCRUED,sgroup,
+              SIMPLIFY=FALSE)
   # assign ISIN 
   for(k in sgroup) names(p[[k]]) <- bonddata[[k]]$ISIN
   
@@ -78,7 +79,8 @@ nelson_estim <-
   
   obj_fct_yields <- function(b) {  
     loss_function(y[[k]][,2],bond_yields(rbind(
-    -bond_prices(method,b,m[[k]],cf[[k]])$bond_prices,cf[[k]]),m_p[[k]])[,2],duration[[k]][,3],weights)} 
+    -bond_prices(method,b,m[[k]],cf[[k]])$bond_prices,cf[[k]]),m_p[[k]])[,2],
+                 duration[[k]][,3],weights)} 
     
   obj_fct <- switch(fit,
                 "prices" = obj_fct_prices,
@@ -107,20 +109,24 @@ nelson_estim <-
        m[[k]],cf[[k]])$bond_prices,sgroup,SIMPLIFY=FALSE)
        
   # price errors
-  perrors <- mapply(function(k) cbind(y[[k]][,1],phat[[k]] - p[[k]]),sgroup,SIMPLIFY=FALSE)     
+  perrors <- mapply(function(k) cbind(y[[k]][,1],phat[[k]] - p[[k]]),sgroup,
+                    SIMPLIFY=FALSE)     
   for (k in sgroup) class(perrors[[k]]) <- "error"
   
   # calculate estimated yields 
-  yhat <- mapply(function(k) bond_yields(rbind(-phat[[k]],cf[[k]]),m_p[[k]]),sgroup,SIMPLIFY=FALSE)
+  yhat <- mapply(function(k) bond_yields(rbind(-phat[[k]],cf[[k]]),m_p[[k]]),
+                 sgroup,SIMPLIFY=FALSE)
   
   # yield errors
-  yerrors <- mapply(function(k) cbind(y[[k]][,1], yhat[[k]][,2] - y[[k]][,2]),sgroup,SIMPLIFY=FALSE)
+  yerrors <- mapply(function(k) cbind(y[[k]][,1], yhat[[k]][,2] - y[[k]][,2]),
+             sgroup,SIMPLIFY=FALSE)
   for (k in sgroup) class(yerrors[[k]]) <- "error"
 
   
   # maturity interval
   t <- seq(round(min(mapply(function(i) min(y[[i]][,1]), sgroup)),2),
-                           ceiling(max(mapply(function(i) max(y[[i]][,1]), sgroup))),0.01)
+                           ceiling(max(mapply(function(i) max(y[[i]][,1]), 
+                           sgroup))),0.01)
   
   
   # calculate zero coupon yield curves  
@@ -136,7 +142,8 @@ nelson_estim <-
                                       
   # calculate spread curves              	 
    if(n_group != 1) {  
-   s_curves <- mapply(function(k) cbind(t,(zcy_curves[[k]][,2] - zcy_curves[[1]][,2])),sgroup,
+   s_curves <- mapply(function(k) cbind(t,(zcy_curves[[k]][,2] 
+             - zcy_curves[[1]][,2])),sgroup,
    					SIMPLIFY=FALSE)
     } else s_curves = "none"
    
@@ -145,7 +152,8 @@ nelson_estim <-
     
   # calculate extrapolation point                        
   expoints <- mapply(function(k) which(zcy_curves[[k]][,1] > 
-                 mapply(function(i) max(y[[i]][,1]), seq(n_group))[k])[1],sgroup, SIMPLIFY=FALSE )  
+                 mapply(function(i) max(y[[i]][,1]), seq(n_group))[k])[1],
+                 sgroup, SIMPLIFY=FALSE )  
         
   # calculate forward rate curves 
   fwr_curves <- switch(method,
@@ -179,7 +187,7 @@ nelson_estim <-
                  forward=fwr_curves,   # forward rate curves
                  discount=df_curves,   # discount factor curves
                  expoints=expoints,    # extrapolation points
-       		 cf=cf,                # cashflow matrix
+       		       cf=cf,                # cashflow matrix
                  m=m,                  # maturity matrix
                  duration=duration,    # duration, modified duration, weights
                  p=p,                  # dirty prices

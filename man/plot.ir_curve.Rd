@@ -3,7 +3,7 @@
 
 \title{ S3 Plot Method }
 \description{
-S3 plot method for an object of the class \code{"ir_curve".}
+S3 plot method for an object of the class \command{"ir_curve".}
 }
 \usage{
 \method{plot}{ir_curve}(x, ylim = c(), xlim = c(), lwd = 2, type = "l",
@@ -12,16 +12,16 @@ S3 plot method for an object of the class \code{"ir_curve".}
 }
 
 \arguments{
-  \item{x}{object of the class \code{"ir_curve"}.}
-  \item{ylim}{the y limits of the plot, for details see \code{\link{plot.default}}.}
-  \item{xlim}{the x limits of the plot, for details see \code{\link{plot.default}}.}
-  \item{lwd}{the line width, for details see \code{\link{par}}.}
-  \item{type}{1-character string giving the type of plot desired, for details see \code{\link{plot.default}}.}
-  \item{xlab}{a label for the x axis, for details see \code{\link{plot.default}}.}
-  \item{ylab}{a label for the y axis, for details see \code{\link{plot.default}}.}
+  \item{x}{object of the class \command{"ir_curve"}.}
+  \item{ylim}{the y limits of the plot, for details see \command{\link{plot.default}}.}
+  \item{xlim}{the x limits of the plot, for details see \command{\link{plot.default}}.}
+  \item{lwd}{the line width, for details see \command{\link{par}}.}
+  \item{type}{1-character string giving the type of plot desired, for details see \command{\link{plot.default}}.}
+  \item{xlab}{a label for the x axis, for details see \command{\link{plot.default}}.}
+  \item{ylab}{a label for the y axis, for details see \command{\link{plot.default}}.}
   \item{col}{ the colors for lines and points.}
-  \item{lty}{the line type, for details see \code{\link{par}}.}
-  \item{\dots}{ other graphical parameters, see \code{\link{par}}.}
+  \item{lty}{the line type, for details see \command{\link{par}}.}
+  \item{\dots}{ other graphical parameters, see \command{\link{par}}.}
 }
 %\details{}
 %\value{}
@@ -32,4 +32,3 @@ S3 plot method for an object of the class \code{"ir_curve".}
 %\seealso{}
 %\examples{}
 
-\keyword{  }

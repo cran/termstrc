@@ -30,4 +30,4 @@ maturity_range(bonddata, lower, upper)
 %\seealso{ }
 
 %\examples{}
-\keyword{ }
+

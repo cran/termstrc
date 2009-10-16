@@ -3,7 +3,7 @@
 
 \title{S3 Plot Method }
 \description{
- S3 plot method for an object of the class \code{"nelson"}.
+ S3 plot method for an object of the class \command{"nelson"}.
 }
 \usage{
 \method{plot}{nelson}(x, matrange = c(min(mapply(function(i) min(x$y[[i]][, 1]),
@@ -14,32 +14,32 @@
 }
 
 \arguments{
-  \item{x}{object of the class \code{"nelson"}.}
+  \item{x}{object of the class \command{"nelson"}.}
   \item{matrange}{ maturity range for the plot, e.g. c(2,10).}
-  \item{multiple}{if \code{TRUE} all curves are plotted together (default: \code{FALSE}).}
-  \item{expoints}{extrapolation points (default: \code{NULL}).}
-  \item{ctype}{ parameter setting for the desired curve type, \code{"spot"} (\code{"forward"}, \code{"discount"}, \code{"spread"}) for the spot rate (forward rate, discount factor, spread) curves. Use \code{"none"} if no curve plot is desired.  }
- \item{errors}{Specify the type of the error plot. If \code{"priece"} (\code{"yield"}) the price (yield) errors will be plot. Use \code{"none"} if no error plot is desired. }
-\item{lwd}{the line width, for details see \code{\link{par}}.}
-\item{lty}{the line type, for details see \code{\link{par}}.}
-  \item{type}{1-character string giving the type of plot desired, for details see \code{\link{plot.default}}.}
-  \item{inset}{ inset distance(s) from the margins as a fraction of the plot region, for details see \code{\link{legend}}.}
-  \item{ask}{if \code{TRUE} (and the \R session is interactive) the user is asked for input, before a new figure is drawn, see \code{\link{par}} for details.}
-  \item{\dots}{other graphical parameters, see \code{\link{par}}. }
+  \item{multiple}{if \command{TRUE} all curves are plotted together (default: \command{FALSE}).}
+  \item{expoints}{extrapolation points (default: \command{NULL}).}
+  \item{ctype}{ parameter setting for the desired curve type, \command{"spot"} (\command{"forward"}, \command{"discount"}, \command{"spread"}) for the spot rate (forward rate, discount factor, spread) curves. Use \command{"none"} if no curve plot is desired.  }
+ \item{errors}{Specify the type of the error plot. If \command{"price"} (\command{"yield"}) the pricing (yield) errors will be plotted   . Use \command{"none"} if no error plot is desired. }
+\item{lwd}{the line width, for details see \command{\link{par}}.}
+\item{lty}{the line type, for details see \command{\link{par}}.}
+  \item{type}{1-character string giving the type of plot desired, for details see \command{\link{plot.default}}.}
+  \item{inset}{ inset distance(s) from the margins as a fraction of the plot region, for details see \command{\link{legend}}.}
+  \item{ask}{if \command{TRUE} (and the \R session is interactive) the user is asked for input, before a new figure is drawn, see \command{\link{par}} for details.}
+  \item{\dots}{other graphical parameters, see \command{\link{par}}. }
 }
 \details{
-  Depending on the choice of the curve type (\code{"spot"}, \code{"forward"}, \code{"discount"}, \code{"spread"}) the corresponding
-curves will be plot. Either separately or together (\code{multiple = TRUE}). If the curves are plotted together a dashed line indicates that
+  Depending on the choice of the curve type (\command{"spot"}, \command{"forward"}, \command{"discount"}, \command{"spread"}) the corresponding
+curves will be plot. Either separately or together (\command{multiple = TRUE}). If the curves are plotted together a dashed line indicates that
 the corresponding curve has been extrapolated. In addition, with a separate zero-coupon yield curve plot the yield-to-maturity will be plot. To ease the analysis of the goodness of the estimation, several error plots are offered. }
 
   
 %\value{}
 %\references{  }
 %\note{ }
-\seealso{ \code{\link{plot.df_curves}}, \code{\link{plot.error}}, \code{\link{plot.fwr_curves}}, \code{\link{plot.ir_curve}}, \code{\link{plot.s_curves}},
+\seealso{ \command{\link{plot.df_curves}}, \command{\link{plot.error}}, \command{\link{plot.fwr_curves}}, \command{\link{plot.ir_curve}}, \command{\link{plot.s_curves}},
 
-\code{\link{plot.spot_curves}}, \code{\link{plot.nelson}} }
+\command{\link{plot.spot_curves}}, \command{\link{plot.nelson}} }
 %\examples{}
 
-\keyword{  }
+
 

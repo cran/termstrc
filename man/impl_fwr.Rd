@@ -27,5 +27,4 @@ The function returns the calculated forward rate vector.
 %\seealso{}
 %\examples{}
 
-\keyword{  }
 

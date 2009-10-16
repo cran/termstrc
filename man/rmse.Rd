@@ -17,6 +17,6 @@ rmse(actual, estimated)
 whereas \eqn{\bm{\epsilon}} is the vector of the yield or price errors of the bonds and \eqn{\bm{\iota}} is a column vector filled with ones. \eqn{m} is the number of bonds, for which \eqn{\bm{\epsilon}} has been calculated. 
 }
 
-\seealso{\code{\link{aabse}}}
+\seealso{\command{\link{aabse}}}
 
-\keyword{}
+

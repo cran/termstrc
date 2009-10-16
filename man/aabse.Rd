@@ -30,4 +30,4 @@ whereas \eqn{\bm{\epsilon}} is the vector of the yield or price errors of the bo
 %\author{Robert Ferstl, Josef Hayden}
 \seealso{\code{\link{rmse}}}
 
-\keyword{}
+

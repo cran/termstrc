@@ -12,15 +12,15 @@ AA, AA-, A+, A, A-, BBB+, BBB, BBB-
 
 \note{
 If you use your own data set, make sure that the structure is identical to the provided data sets.
-Use the function \code{str()} to explore the data set. 
+Use the function \command{str()} to explore the data set. 
  
-Every element of the list except \code{$RATING, $NAME} is required for the estimation. The elements 
-\code{$COUPONRATE, $PRICE} are not necessarily required. The calculation of the accrued interest 
+Every element of the list except \$RATING and \$NAME is required for the estimation. The elements 
+\$COUPONRATE and \$PRICE are not necessarily required. The calculation of the accrued interest 
 is not implemented and has therefore be provided by the user. For the provided data sets the list element
-\code{$ACCRUED} includes the accrued interest. 
+\$ACCRUED includes the accrued interest. 
 }
 
-\seealso{ \code{\link{eurobonds}}, \code{\link{govbonds}}}
+\seealso{ \command{\link{eurobonds}}, \command{\link{govbonds}}}
 
 \examples{
 data(corpbonds)

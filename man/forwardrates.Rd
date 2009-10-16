@@ -8,7 +8,7 @@ forwardrates(method, beta, m)
 }
 
 \arguments{
-  \item{method}{method used for the forward rate calculation (\code{"Nelson/Siegel"} or \code{"Svensson"}).}
+  \item{method}{method used for the forward rate calculation (\command{Nelson/Siegel} or \command{Svensson}).}
   \item{beta}{parameters corresponding to the chosen method.}
   \item{m}{one maturity or a vector of maturities.}
 }
@@ -18,7 +18,7 @@ forwardrates(method, beta, m)
 %\references{  }
 
 %\note{ }
-\seealso{\code{\link{fwr_ns}}, \code{\link{fwr_sv}}}
+\seealso{\command{\link{fwr_ns}}, \command{\link{fwr_sv}}}
 %\examples{}
 
-\keyword{  }
+

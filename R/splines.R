@@ -37,7 +37,8 @@ splines_estim <-
                 sgroup,SIMPLIFY=FALSE)
     
   # calculate dirty prices
-  p <- mapply(function(k) bonddata[[k]]$PRICE + bonddata[[k]]$ACCRUED,sgroup,SIMPLIFY=FALSE)
+  p <- mapply(function(k) bonddata[[k]]$PRICE + bonddata[[k]]$ACCRUED,sgroup,
+              SIMPLIFY=FALSE)
   # assign ISIN
   for(k in sgroup) names(p[[k]]) <- bonddata[[k]]$ISIN
   
@@ -72,13 +73,16 @@ splines_estim <-
   
   h <-  mapply(function(k) trunc(((i[[k]]-1)*K[[k]])/(s[[k]]-2)),sgroup,SIMPLIFY=FALSE)
              
-  theta <- mapply(function(k)((i[[k]]-1)*K[[k]])/(s[[k]]-2)-h[[k]],sgroup,SIMPLIFY=FALSE)
+  theta <- mapply(function(k)((i[[k]]-1)*K[[k]])/(s[[k]]-2)-h[[k]],
+                  sgroup,SIMPLIFY=FALSE)
   
   # calculate knot points
   T <- mapply(function(k) if(s[[k]]>3) c(floor(min(y[[k]][,1])),
        apply(as.matrix(m[[k]][,h[[k]]]),2,max)
-       + theta[[k]]*(apply(as.matrix(m[[k]][,h[[k]]+1]),2,max)-apply(as.matrix(m[[k]][,h[[k]]]),2,max)),
-       max(m[[k]][,ncol(m[[k]])])) else c(floor(min(y[[k]][,1])),max(m[[k]][,ncol(m[[k]])])),sgroup,SIMPLIFY=FALSE)
+       + theta[[k]]*(apply(as.matrix(m[[k]][,h[[k]]+1]),2,max)
+       -apply(as.matrix(m[[k]][,h[[k]]]),2,max)),
+       max(m[[k]][,ncol(m[[k]])])) else c(floor(min(y[[k]][,1])),
+       max(m[[k]][,ncol(m[[k]])])),sgroup,SIMPLIFY=FALSE)
  
   # parameter estimation with OLS
   # dependent variable
@@ -88,7 +92,9 @@ splines_estim <-
   # k ... group index
   # sidx ... index for spline function  
   # independetn variable	
-  X <- mapply(function(k) mapply(function(sidx)  apply(cf[[k]]*mapply(function(j) gi(m[[k]][,j],T[[k]],sidx,s[[k]]),1:ncol(m[[k]])),2,sum), 1:s[[k]] ),sgroup,SIMPLIFY=FALSE)
+  X <- mapply(function(k) mapply(function(sidx)  apply(cf[[k]]
+  *mapply(function(j) gi(m[[k]][,j],T[[k]],sidx,s[[k]]),1:ncol(m[[k]])),2,sum),
+   1:s[[k]] ),sgroup,SIMPLIFY=FALSE)
 
   # perfom OLS regression 
   regout <- mapply(function(k) lm(-Y[[k]]~X[[k]]-1),sgroup,SIMPLIFY=FALSE) # parameter vector
@@ -101,7 +107,8 @@ splines_estim <-
    for (k in sgroup){
    dt[[k]] <- matrix(1,nrow(m[[k]]),ncol(m[[k]]))
    for(sidx in 1:s[[k]]){
-    dt[[k]] <- dt[[k]] + alpha[[k]][sidx]* mapply(function(j) gi(m[[k]][,j],T[[k]],sidx,s[[k]]),1:ncol(m[[k]]))
+    dt[[k]] <- dt[[k]] + alpha[[k]][sidx]* mapply(function(j) gi(m[[k]][,j],
+    T[[k]],sidx,s[[k]]),1:ncol(m[[k]]))
    }
   }  
 
@@ -113,14 +120,17 @@ splines_estim <-
   for (k in sgroup) class(perrors[[k]]) <- "error"
   
   # calculate estimated yields 
-  yhat <- mapply(function(k) bond_yields(rbind(-phat[[k]],cf[[k]]),m_p[[k]]),sgroup,SIMPLIFY=FALSE)
+  yhat <- mapply(function(k) bond_yields(rbind(-phat[[k]],cf[[k]]),m_p[[k]]),
+          sgroup,SIMPLIFY=FALSE)
   
   # yield errors
-  yerrors <- mapply(function(k) cbind(y[[k]][,1], yhat[[k]][,2] - y[[k]][,2]),sgroup,SIMPLIFY=FALSE)
+  yerrors <- mapply(function(k) cbind(y[[k]][,1], yhat[[k]][,2] - y[[k]][,2]),
+  sgroup,SIMPLIFY=FALSE)
   for (k in sgroup) class(yerrors[[k]]) <- "error"
   
   # maturity interval
-  t <- mapply(function(k) seq(max(round(min(T[[k]]),2),0.01),max(T[[k]]),0.01), sgroup,SIMPLIFY=FALSE)  
+  t <- mapply(function(k) seq(max(round(min(T[[k]]),2),0.01),max(T[[k]]),0.01), 
+  sgroup,SIMPLIFY=FALSE)  
  
   # calculate mean and variance of the distribution of the discount function 
   mean_d <- mapply(function(k) apply(mapply(function(sidx) alpha[[k]][sidx]*
@@ -140,7 +150,8 @@ splines_estim <-
                     length(mean_d[[k]]))*sqrt(var_d[[k]]),sgroup,SIMPLIFY=FALSE) 
   
   # zero cupon yield curves for maturity interval t 
-  zcy_curves <-  mapply(function(k)  cbind(t[[k]],-log(mean_d[[k]])/t[[k]],-log(cl[[k]])/t[[k]],
+  zcy_curves <-  mapply(function(k)  cbind(t[[k]],-log(mean_d[[k]])/t[[k]],
+         -log(cl[[k]])/t[[k]],
  				 -log(cu[[k]])/t[[k]]),sgroup, SIMPLIFY=FALSE )  
  
    
@@ -150,8 +161,11 @@ splines_estim <-
   # calculate spread curves           	    
    if(n_group != 1) {     
    srange <- seq(max(unlist(lapply(t,min))),min(unlist(lapply(t,max))),0.01)
-   s_curves <- mapply(function(k) cbind(srange,zcy_curves[[k]][c(which(zcy_curves[[k]][,1]== srange[1]): which(zcy_curves[[k]][,1] == srange[length(srange)])),2] 
-    - zcy_curves[[1]][c(which(zcy_curves[[1]][,1]== srange[1]): which(zcy_curves[[1]][,1]== srange[length(srange)])),2]),sgroup, SIMPLIFY=FALSE) 
+   s_curves <- mapply(function(k) cbind(srange,zcy_curves[[k]]
+   [c(which(zcy_curves[[k]][,1]== srange[1]): which(zcy_curves[[k]][,1] 
+   == srange[length(srange)])),2] 
+    - zcy_curves[[1]][c(which(zcy_curves[[1]][,1]== srange[1]): 
+    which(zcy_curves[[1]][,1]== srange[length(srange)])),2]),sgroup, SIMPLIFY=FALSE) 
    
    } else s_curves = "none"
    for (k in sgroup) class(s_curves[[k]]) <- "ir_curve" 
@@ -165,7 +179,8 @@ splines_estim <-
   
   # calculate forward rate curves
   
-  fwr_curves <- mapply(function(k) cbind(t[[k]],impl_fwr(zcy_curves[[k]][,1],zcy_curves[[k]][,2])),sgroup,SIMPLIFY=FALSE)
+  fwr_curves <- mapply(function(k) cbind(t[[k]],impl_fwr(zcy_curves[[k]][,1],
+  zcy_curves[[k]][,2])),sgroup,SIMPLIFY=FALSE)
   
    for (k in sgroup) class(fwr_curves[[k]]) <- "ir_curve"
   class(fwr_curves) <- "fwr_curves"	

@@ -95,7 +95,7 @@ plot.nelson <-
     	title(names(x$opt_result)[k])
     	 
     	if(ctype=="spot") {points(x$y[[k]][,1],x$y[[k]][,2]*100,col="red") 
-    		legend("bottom",legend=c("Zero-coupon yield curve","Yield to maturity"),
+    		legend("bottom",legend=c("Zero-coupon yield curve","Yield-to-maturity"),
                 col=c("steelblue","red"), lty = c(1, -1), pch=c(-1,21))}
         else 	legend("bottom",legend=cname	,col=c("steelblue"), lty = lty , pch=(-1))
 
@@ -123,8 +123,10 @@ plot.nelson <-
     		legend("bottomright", legend=c(paste("  RMSE",
     		        switch(errors,"price" = round(rmse(x$p[[k]],x$phat[[k]]),4),
                        "yield" = round(rmse(x$y[[k]][,2],x$yhat[[k]][,2]),4)) ,sep=": "),
-                        paste("AABSE",switch(errors,"price" = round(aabse(x$p[[k]],x$phat[[k]]),4),
-                        "yield" = round(aabse(x$y[[k]][,2],x$yhat[[k]][,2]),4)),sep=": ")),bty="n", inset=inset) 
+                        paste("AABSE",switch(errors,"price" = round(aabse(x$p[[k]],
+                        x$phat[[k]]),4),
+                        "yield" = round(aabse(x$y[[k]][,2],x$yhat[[k]][,2]),4)),
+                        sep=": ")),bty="n", inset=inset) 
     		
     	}
     	
@@ -149,12 +151,14 @@ summary.nelson <-
     gof <- rbind(RMSE_p,AABSE_p,RMSE_y,AABSE_y)
     colnames(gof) <- names(x$p)
     rownames(gof) <- c("RMSE-Prices","AABSE-Prices","RMSE-Yields","AABSE-Yields")
-    convergencegroup <- as.matrix(apply(as.matrix(mapply(function(i) x$opt_result[[i]]$convergence,
+    convergencegroup <- as.matrix(apply(as.matrix(mapply(function(i) 
+                              x$opt_result[[i]]$convergence,
                               seq_along(x$opt_result))),1,
                               function(x) if(x==1) "no convergence" else "converged"))
     colnames(convergencegroup) <- "Convergence ()"
     rownames(convergencegroup) <- x$group
-    convergence <- as.matrix(mapply(function(i) x$opt_result[[i]]$message,seq_along(x$opt_result)))
+    convergence <- as.matrix(mapply(function(i) x$opt_result[[i]]$message,
+                   seq_along(x$opt_result)))
     colnames(convergence) <- "Solver message"
     rownames(convergence) <- x$group
     sumry <- list(gof,convergencegroup,convergence)
@@ -261,7 +265,7 @@ print.summary.cubicsplines <-
 plot.cubicsplines <-
   function(x,matrange =c(min(mapply(function(i) min(x$y[[i]][,1]), seq(x$n_group))),
                         max(mapply(function(i) max(x$y[[i]][,1]), seq(x$n_group)))),
-                        multiple=FALSE, expoints=NULL, ctype="spot",
+                        multiple=FALSE, ctype="spot",
                         lwd=2,lty=1,type="l",errors="price",inset=c(0.8,0.1),ask=TRUE, ...) {
        
      # min and max maturity of all bonds in the sample 
@@ -322,7 +326,7 @@ plot.cubicsplines <-
     	  # knot points 
     	  abline(v=c(x$knotpoints[[k]]),lty=2, col="darkgrey")
     	  legend("bottom",legend=c("Zero-coupon yield curve",
-    	  "95 % Confidence interval" ,"Yield to maturity", "Knot points"),
+    	  "95 % Confidence interval" ,"Yield-to-maturity", "Knot points"),
     	  col=c("steelblue","steelblue","red", "darkgrey"),
     	  lty = c(1,3,-1,2), pch=c(-1,-1,21,-1))
 	
@@ -355,8 +359,10 @@ plot.cubicsplines <-
     		legend("bottomright", legend=c(paste("  RMSE",
     		switch(errors,"price" = round(rmse(x$p[[k]],x$phat[[k]]),4),
                        "yield" = round(rmse(x$y[[k]][,2],x$yhat[[k]][,2]),4)) ,sep=": "),
-                        paste("AABSE",switch(errors,"price" = round(aabse(x$p[[k]],x$phat[[k]]),4),
-                        "yield" = round(aabse(x$y[[k]][,2],x$yhat[[k]][,2]),4)),sep=": ")),bty="n", inset=inset) 
+                        paste("AABSE",switch(errors,"price" = round(aabse(x$p[[k]],
+                        x$phat[[k]]),4),
+                        "yield" = round(aabse(x$y[[k]][,2],x$yhat[[k]][,2]),4)),
+                        sep=": ")),bty="n", inset=inset) 
     		
     	  }
     	
@@ -368,8 +374,8 @@ plot.cubicsplines <-
 #                    plot-method for ir_curve                     #
 ###################################################################
 plot.ir_curve <- function(x,ylim=c(),xlim=c(),lwd=2, type="l",
-				xlab="Maturity (years)",ylab="Percent", 
-				col="steelblue",lty=1, ...) 
+        xlab="Maturity (years)",ylab="Percent", 
+  	col="steelblue",lty=1, ...) 
 				{
 	plot(x[,1] ,x[,2]*100, type=type, ylim=ylim, xlim=xlim, xlab=xlab,
      ylab=ylab,lwd=lwd,lty=lty,col=col, ... )
@@ -381,12 +387,12 @@ plot.ir_curve <- function(x,ylim=c(),xlim=c(),lwd=2, type="l",
 ###################################################################
 
 plot.spot_curves <- function(x,multiple= FALSE,
-				ylim= c(range(mapply(function(i) 
-				range(x[[i]][,2]),seq(x))))*100,xlim=c(),
-				type="l", lty=1, lwd=2, expoints=NULL, 
-				ylab= "Zero-coupon yields (percent)",
-				xlab= "Maturity (years)",main="Zero-coupon yield curves",
-				...) {
+		   ylim= c(range(mapply(function(i) 
+		   range(x[[i]][,2]),seq(x))))*100,xlim=c(),
+                   type="l", lty=1, lwd=2, expoints=NULL, 
+                   ylab= "Zero-coupon yields (percent)",
+                   xlab= "Maturity (years)",main="Zero-coupon yield curves",
+                            ...) {
 
 	if(multiple) 
 	{ plot(x[[which.max(mapply(function(i) max(x[[i]][,1]),
@@ -428,10 +434,10 @@ plot.spot_curves <- function(x,multiple= FALSE,
 ###################################################################
 
 plot.fwr_curves <- function(x,multiple= FALSE,
-					ylim= c(range(mapply(function(i) range(x[[i]][,2]),
-					seq(x))))*100,xlim=c(),type="l", lty=1, 
-					lwd=2, expoints=NULL, ylab= "Forward rate (percent)",
-					xlab= "Maturity (years)",main="Forward rate curves",...) 
+   ylim= c(range(mapply(function(i) range(x[[i]][,2]),
+   seq(x))))*100,xlim=c(),type="l", lty=1, 
+   lwd=2, expoints=NULL, ylab= "Forward rate (percent)",
+   xlab= "Maturity (years)",main="Forward rate curves",...) 
 					
 { plot.spot_curves(x,ylab=ylab, xlab=xlab, main=main,
 	multiple=multiple,expoints=expoints,lty=lty,lwd=lwd,type=type, ... )
@@ -443,10 +449,10 @@ plot.fwr_curves <- function(x,multiple= FALSE,
 ###################################################################
 
 plot.df_curves <- function(x,multiple= FALSE,
-					ylim= c(range(mapply(function(i) range(x[[i]][,2]),
-					seq(x))))*100,xlim=c(),type="l", lty=1,
-					lwd=2, expoints=NULL, ylab="Discount factor (percent)",
-					xlab= "Maturity (years)",main="Discount factor curves",...) 
+	ylim= c(range(mapply(function(i) range(x[[i]][,2]),
+	seq(x))))*100,xlim=c(),type="l", lty=1,
+	lwd=2, expoints=NULL, ylab="Discount factor (percent)",
+	xlab= "Maturity (years)",main="Discount factor curves",...) 
 { plot.spot_curves(x,ylab=ylab, xlab=xlab, main=main,
 	multiple=multiple,expoints=expoints,lty=lty,lwd=lwd,type=type, ... )
 
@@ -456,10 +462,10 @@ plot.df_curves <- function(x,multiple= FALSE,
 #                    plot-method for s_curves                     #
 ###################################################################
 plot.s_curves <- function(x,xlim=c(range(mapply(function(i) 
-					range(x[[i]][,1]),seq(x)))),
-					ylim=c(range(mapply(function(i) range(x[[i]][,2]),
-					seq(x))))*10000,expoints=NULL, xlab="Maturity (years)", 
-					ylab="Spread (basis points)", lwd=2,lty=1, main="Spread curves", ...)
+	   range(x[[i]][,1]),seq(x)))),
+	   ylim=c(range(mapply(function(i) range(x[[i]][,2]),
+	   seq(x))))*10000,expoints=NULL, xlab="Maturity (years)", 
+	   ylab="Spread (basis points)", lwd=2,lty=1, main="Spread curves", ...)
 					
 {  if(!is.character(x))
    {
@@ -486,7 +492,7 @@ plot.s_curves <- function(x,xlim=c(range(mapply(function(i)
 
 	
 ###################################################################
-#              		 plot-method for error                    #
+#              		 plot-method for error                         #
 ###################################################################    
 
 plot.error <- function(x,type="b",main="", mar= c(7,6,6,2) + 0.1, oma=c(4,2,2,2) +0.1,
@@ -494,14 +500,14 @@ plot.error <- function(x,type="b",main="", mar= c(7,6,6,2) + 0.1, oma=c(4,2,2,2)
 	old.par <- par(no.readonly = TRUE)
     par(mar=mar, oma=oma, ... )
     
-		plot(x[,1],x[,2],axes=FALSE,pch=19,lwd=c(1,2),xlab="", ylab=ylab,type=type, ...)
-		axis(1,x[,1],rownames(x),las=3,...)
-		axis(2,...)
-		axis(3,x[,1],round(x[,1],2),...)
-		mtext("Maturity (years)",3,line=2.5)
-		lines(x[,1],rep(0,nrow(x)),lty=2,lwd=1,... )
-		title(xlab="ISIN", outer=TRUE,main=main,...) 
+   plot(x[,1],x[,2],axes=FALSE,pch=19,lwd=c(1,2),xlab="", ylab=ylab,type=type, ...)
+   axis(1,x[,1],rownames(x),las=3,...)
+   axis(2,...)
+   axis(3,x[,1],round(x[,1],2),...)
+   mtext("Maturity (years)",3,line=2.5)
+   lines(x[,1],rep(0,nrow(x)),lty=2,lwd=1,... )
+   title(xlab="ISIN", outer=TRUE,main=main,...) 
 	 
-	 on.exit(par(old.par))
+   on.exit(par(old.par))
 }               
 	

@@ -29,5 +29,5 @@ The Tax-Adjusted Yield Curve.
 %\seealso{  }
 %\examples{ }
 
-\keyword{ }
+
 

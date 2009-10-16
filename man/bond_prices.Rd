@@ -36,4 +36,4 @@ bond_prices(method = "Nelson/Siegel", beta, m, cf)
 
 %\examples{}
 
-\keyword{  }
+
