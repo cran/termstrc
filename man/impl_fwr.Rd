@@ -1,6 +1,6 @@
 \name{impl_fwr}
+\Rdversion{1.1}
 \alias{impl_fwr}
-
 \title{Implied Forward Rate Calculation}
 \description{Calculates the implied forward rates from given spot rates.
 }
@@ -21,10 +21,9 @@ whereas \eqn{s(m_T), s(m_{t'})} is the spot rate for a maturity \eqn{m_T,m_{t'}}
 \value{
 The function returns the calculated forward rate vector.
 }
-%\references{  }
-%\author{ Robert Ferstl, Josef Hayden }
-%\note{ }
-%\seealso{}
-%\examples{}
 
+\examples{
+s <-  spr_ns(c(0.03,0.02,0.01,5),1:30)
+impl_fwr(s,m=1:30)
+}
 

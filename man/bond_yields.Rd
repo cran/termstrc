@@ -1,5 +1,8 @@
 \name{bond_yields}
+\Rdversion{1.1}
 \alias{bond_yields}
+
+
 
 \title{Bond Yield Calculation}
 
@@ -10,22 +13,24 @@ bond_yields(cashflows, m, searchint = c(-1, 1), tol = 1e-10)
 }
 
 \arguments{
-  \item{cashflows}{ matrix with the bonds cashflows.}
-  \item{m}{maturity matrix.}
+  \item{cashflows}{ matrix with the cashflows of the bonds, including the current dirty price.}
+  \item{m}{maturity matrix of the bonds}
   \item{searchint}{search interval for root finding.}
   \item{tol}{desired accuracy for function \command{uniroot}.}
 }
-%\details{}
 
-\value{
-The function returns a matrix with the bond yields and the associated maturities. 
+
+\value{ The function returns a matrix with the yields of the bonds and the associated maturities. 
 }
 
-%\references{}
-
-%\author{Robert Ferstl, Josef Hayden }
-%\note{}
-
 \seealso{ \command{\link{uniroot}}}
-%\examples{}
+
+\examples{
+data(govbonds)
+cf_p <- create_cashflows_matrix(govbonds[[1]],include_price=TRUE)
+m_p <- create_maturities_matrix(govbonds[[1]],include_price=TRUE)
+bond_yields(cf_p,m_p)
+}
+
+
 

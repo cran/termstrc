@@ -1,4 +1,5 @@
 \name{plot.df_curves}
+\Rdversion{1.1}
 \alias{plot.df_curves}
 
 \title{S3 Plot Method}
@@ -27,11 +28,5 @@
   \item{main}{a main title for the plot, for details see \command{\link{title}}.}
   \item{\dots}{ other graphical parameters, see \command{\link{par}}.}
 }
-%\details{}
-%\value{}
-%\references{  }
-%\author{ Robert Ferstl, Josef Hayden }
-%\note{ }
-\seealso{\command{\link{plot.fwr_curves}},  \command{\link{plot.s_curves}},  \command{\link{plot.spot_curves}} }
-%\examples{}
 
+\seealso{\command{\link{plot.fwr_curves}},  \command{\link{plot.s_curves}},  \command{\link{plot.spot_curves}} }

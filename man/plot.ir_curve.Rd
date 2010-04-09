@@ -1,5 +1,7 @@
 \name{plot.ir_curve}
+\Rdversion{1.1}
 \alias{plot.ir_curve}
+
 
 \title{ S3 Plot Method }
 \description{
@@ -7,7 +9,7 @@ S3 plot method for an object of the class \command{"ir_curve".}
 }
 \usage{
 \method{plot}{ir_curve}(x, ylim = c(), xlim = c(), lwd = 2, type = "l",
-	xlab = "Maturity (years)", ylab = "Percent",
+	xlab = "Maturity (years)", ylab = "Zero-coupon yields (in percent)",
 	col = "steelblue", lty = 1, ...)
 }
 
@@ -23,12 +25,4 @@ S3 plot method for an object of the class \command{"ir_curve".}
   \item{lty}{the line type, for details see \command{\link{par}}.}
   \item{\dots}{ other graphical parameters, see \command{\link{par}}.}
 }
-%\details{}
-%\value{}
-
-%\references{  }
-%\author{ Robert Ferstl, Josef Hayden }
-%\note{ }
-%\seealso{}
-%\examples{}
 

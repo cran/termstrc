@@ -1,4 +1,5 @@
 \name{rmse}
+\Rdversion{1.1}
 \alias{rmse}
 \title{Root Mean Squared Error}
 \description{Calulates the root mean squared error (RMSE).}
@@ -18,5 +19,3 @@ whereas \eqn{\bm{\epsilon}} is the vector of the yield or price errors of the bo
 }
 
 \seealso{\command{\link{aabse}}}
-
-

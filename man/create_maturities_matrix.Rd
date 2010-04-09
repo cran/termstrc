@@ -1,9 +1,11 @@
 \name{create_maturities_matrix}
+\Rdversion{1.1}
 \alias{create_maturities_matrix}
+
 
 \title{Maturity Matrix Creation }
 \description{
-  Creates a matrix of maturities for a specified group of bonds. The number of rows is the number of cashflows for the bond with the longest maturity.
+  Creates a matrix of maturities for a specified group of bonds for a static bond data set. The number of rows is the number of cashflows for the bond with the longest maturity.
 
 }
 
@@ -12,20 +14,23 @@ create_maturities_matrix(group, include_price = FALSE)
 }
 
 \arguments{
-  \item{group}{name of the group of bonds (default: \command{FALSE}).}
-  \item{include_price}{if \command{TRUE} the dirty price is included.}
+  \item{group}{static bond data set for a certain group of bonds.}
+  \item{include_price}{if \command{TRUE} the dirty price is included (default: \command{FALSE}).}
 }
 
 
 \value{The maturity matrix is returned. 
 }
 
-%\references{  }
-%\author{Robert Ferstl, Josef Hayden}
-
-%\note{ }
 
 \seealso{\command{\link{create_cashflows_matrix}}}
 
-%\examples{}
+\examples{
+data(govbonds)
+(m <- create_maturities_matrix(govbonds[[1]]))
 
+## maturities matrix with included maturity of the current 
+## dirty price, i.e., zero. 
+(m_p <- create_maturities_matrix(govbonds[[1]],include_price=TRUE))
+
+}

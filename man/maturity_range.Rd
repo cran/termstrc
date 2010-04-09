@@ -1,14 +1,15 @@
 \name{maturity_range}
+\Rdversion{1.1}
 \alias{maturity_range}
 
-\title{Restricting a Bond Dataset }
 
-\description{
-   The function restricts a bond data set to a specified maturity range.
-}
-\usage{
-maturity_range(bonddata, lower, upper)
-}
+\title{Restricting a Bond Dataset}
+
+\description{The function restricts a bond data set to a specified maturity range.}
+
+\usage{maturity_range(bonddata, lower, upper)}
+
+
 
 \arguments{
   \item{bonddata}{bond data set.}
@@ -16,18 +17,4 @@ maturity_range(bonddata, lower, upper)
   \item{upper}{upper bound of maturity spectrum.}
 }
 
-
-%\details{}
-
-%\value{}
-
-%\references{ }
-
-%\author{Robert Ferstl, Josef Hayden}
-
-%\note{}
-
-%\seealso{ }
-
-%\examples{}
-
+\note{Internal helper function.}

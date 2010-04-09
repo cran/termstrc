@@ -1,5 +1,7 @@
 \name{plot.spot_curves}
+\Rdversion{1.1}
 \alias{plot.spot_curves}
+
 \title{ S3 Plot Method }
 \description{
 S3 plot method for an object of the class \command{"spot_curves"}.
@@ -26,12 +28,8 @@ S3 plot method for an object of the class \command{"spot_curves"}.
   \item{main}{a main title for the plot, for details see \command{\link{title}}.}
   \item{\dots}{other graphical parameters, see \command{\link{par}}.}
 }
-%\details{}
-%\value{}
+
   
-%\references{  }
-%\author{ Robert Ferstl, Josef Hayden }
-%\note{ }
+
 \seealso{\command{\link{plot.df_curves}}, \command{\link{plot.fwr_curves}}, \command{\link{plot.s_curves}}}
-%\examples{}
 

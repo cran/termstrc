@@ -1,5 +1,7 @@
 \name{duration}
+\Rdversion{1.1}
 \alias{duration}
+
 \title{Duration, modified Duration and Duration based Weights}
 \description{
   The function calculates the Macauly duration, modified duration and duration based weights.}
@@ -8,7 +10,7 @@ duration(cf_p, m_p, y)
 }
 
 \arguments{
-  \item{cf_p}{cashflows matrix including the prices of the bonds.}
+  \item{cf_p}{cashflows matrix including the current dirty prices of the bonds.}
   \item{m_p}{maturity matrix, the first row is filled with zeros.}
   \item{y}{yields of the bonds.}
 }
@@ -24,14 +26,16 @@ where \eqn{d_j} is the duration of the j-th bond.
 }
 
 \value{
-  The function returns a matrix with three columns, i.e. duration,
+  The function returns a matrix with three columns, i.e,. duration,
   modified duration and duration based weights. 
 }
 
 
+\examples{ 
+data(govbonds)
+cf_p <- create_cashflows_matrix(govbonds[[1]],include_price=TRUE)
+m_p <- create_maturities_matrix(govbonds[[1]],include_price=TRUE)
+y <- bond_yields(cf_p,m_p)
+duration(cf_p,m_p,y[,1])
 
-%\author{Robert Ferstl, Josef Hayden }
-
-%\seealso{  }
-%\examples{}
-
+}

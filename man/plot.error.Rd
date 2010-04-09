@@ -1,4 +1,5 @@
 \name{plot.error}
+\Rdversion{1.1}
 \alias{plot.error}
 
 \title{S3 Plot Method }
@@ -27,11 +28,5 @@ The scaling of the x axis depends on the maturity of the bonds, each bond is lab
 ISIN number. The error plots seems especially useful in identifying misspriced bonds. For removing them,
 the function \command{\link{rm_bond}} may be applied.  
 }
-%\value{}
-%\references{  }
-%\author{ Robert Ferstl, Josef Hayden}
-%\note{ }
+
 \seealso{\command{\link{rm_bond}}}
-%\examples{}
-
-

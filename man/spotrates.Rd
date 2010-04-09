@@ -1,49 +1,34 @@
 \name{spotrates}
+\Rdversion{1.1}
 \alias{spotrates}
 
 \title{Function for the Calculation of the Spot Rates }
-\description{
- The function calculates the spot rates for the chosen approach, a provided maturity vector and
- parameter set.
+
+\description{ The function calculates the spot rates for the chosen spot rate function (Diebold/Li, Nelson/Siegel, Svensson) , a provided maturity and parameter vector.
+
 }
 
+
 \usage{
-spotrates(method, beta, m)
+spotrates(method, beta, m, lambda)
 }
 
 
 
 \arguments{
-  \item{method}{\command{"Nelson/Siegel"} or \command{"Svensson"}.}
-  \item{beta}{ parameter set \eqn{\bm{\beta}}.}
+ \item{method}{spot rate function type: \command{"dl"} for Diebold/Li, \command{"ns"} for Nelson/Siegel, \command{"sv"} for Svensson, \command{"asv"} for adjusted Svensson.}
+  \item{beta}{ parameter vector \eqn{\bm{\beta}}.}
   \item{m}{maturity or a vector of maturities.}
+  \item{lambda}{\eqn{=1/\tau_1}, a scalar; only required for Diebold/Li spot rate function
 }
-\details{The spot rates according to Nelson/Siegel are defined as:
-\deqn{
-  s(m,\bm{\beta}) = \beta_0 + \beta_1\frac{1-\exp(-\frac{m}{\tau_1})}{\frac{m}{\tau_1}} + \beta_2\left(\frac{1-\exp(-\frac{m}{\tau_1})}{\frac{m}{\tau_1}} - \exp(-\frac{m}{\tau_1})\right).}
-
-Svensson defines the spot rate function as follows:
-\deqn{
-s(m,\bm{\beta}) = \beta_0 + \beta_1\frac{1-\exp(-\frac{m}{\tau_1})}{\frac{m}{\tau_1}} + \beta_2\left(\frac{1-\exp(-\frac{m}{\tau_1})}{\frac{m}{\tau_1}} - \exp(-\frac{m}{\tau_1})\right) + \beta_3\left(\frac{1-\exp(-\frac{m}{\tau_2})}{\frac{m}{\tau_2}} - \exp(-\frac{m}{\tau_2})\right)
-}
-
 }
 
 \value{Returns a vector with the calculated spot rates.}
 
-\references{
-Charles R. Nelson and Andrew F. Siegel (1987): 
-Parsimonious Modeling of Yield Curves.
-\emph{The Journal of Business}, \bold{60(4)}:473--489.
+\seealso{ \code{\link{spr_dl}},  \code{\link{spr_ns}}, \code{\link{spr_sv}}
+}
 
-
-Lars E.O. Svensson (1994): 
-Estimating and Interpreting Forward Interest Rates: Sweden 1992 -1994. 
-\emph{Technical Reports 4871, National Bureau of Economic Research}.  }
-%\author{Robert Ferstl, Josef Hayden }
-
-%\note{  }
-%\seealso{ }
-
-%\examples{}
+\examples{
+spotrates(method="ns",beta=c(0.03,0.02,0.01,5),m=1:30)
+  }
 

@@ -1,28 +1,17 @@
 \name{loss_function}
+\Rdversion{1.1}
 \alias{loss_function}
-
 \title{Loss Function used for the Term Structure Estimation }
 \description{
   The loss function defines the objective function used for the optimisation. In case of term structure estimation
- the objective function is either the minimsation of the (weighted) squared price or the yield errors.
+ the objective function is the sum of the weighted squared price errors.
 }
 \usage{
-loss_function(p, phat, omega, weights)
+loss_function(p, phat, omega)
 }
 
 \arguments{
-  \item{p}{vector of observed prices (yields).}
-  \item{phat}{vector of estimated prices (yields).}
-  \item{omega}{weights vector. }
-  \item{weights}{if \command{"none"} the squared deviation of \command{p} and
-    \command{phat} is not weighted, use \command{"duration"} for a duration weighted optimisation.}
+  \item{p}{vector of observed prices.}
+  \item{phat}{vector of estimated prices.}
+  \item{omega}{weights vector, e.g., duration based weights.}
 }
-%\details{
-% 
-%}
-%\value{}
-%\author{Robert Ferstl, Josef Hayden}
-%\note{ }
-%\seealso{ }
-%\examples{}
-

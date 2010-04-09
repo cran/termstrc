@@ -1,4 +1,5 @@
 \name{plot.fwr_curves}
+\Rdversion{1.1}
 \alias{plot.fwr_curves}
 
 \title{S3 Plot Method}
@@ -27,10 +28,7 @@
   \item{main}{a main title for the plot, for details see \command{\link{title}}.}
   \item{\dots}{ other graphical parameters, see \command{\link{par}}.}
 }
-%\details{}
-%\value{}
-%\references{  }
-%\note{ }
+  
+
 \seealso{\command{\link{plot.df_curves}},  \command{\link{plot.s_curves}},  \command{\link{plot.spot_curves}}}
-%\examples{}
 

@@ -1,10 +1,10 @@
 \name{aabse}
+\Rdversion{1.1}
 \alias{aabse}
 
 \title{Average Absolute Mean Error}
 
-\description{Calculation of the average absolute mean error (AABSE). The AABSE may
-also be called mean absolute error (MAE).}
+\description{Calculation of the average absolute mean error (AABSE). The AABSE is also called mean absolute error (MAE).}
 \usage{
 aabse(actual, estimated)
 }
@@ -24,10 +24,6 @@ aabse(actual, estimated)
 whereas \eqn{\bm{\epsilon}} is the vector of the yield or price errors of the bonds and \eqn{\bm{\iota}} is a column vector filled with ones. \eqn{m} is the number of bonds, for which \eqn{\bm{\epsilon}} has been calculated. 
 
 }
-%\value{}
-%\references{}
 
-%\author{Robert Ferstl, Josef Hayden}
 \seealso{\code{\link{rmse}}}
-
 

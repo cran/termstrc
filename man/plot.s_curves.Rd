@@ -1,4 +1,5 @@
 \name{plot.s_curves}
+\Rdversion{1.1}
 \alias{plot.s_curves}
 
 \title{S3 Plot Method}
@@ -29,11 +30,6 @@
 The spread curves (the difference of zero-coupon yield curves) are plotted, if at least two groups of bonds
 were specified.
 }
-%\value{}
-%\references{  }
-%\author{ Robert Ferstl, Josef Hayden }
-%\note{ }
-\seealso{\command{\link{plot.df_curves}}, \command{\link{plot.fwr_curves}}, \command{\link{plot.spot_curves}}}
-%\examples{}
 
+\seealso{\command{\link{plot.df_curves}}, \command{\link{plot.fwr_curves}}, \command{\link{plot.spot_curves}}}
 

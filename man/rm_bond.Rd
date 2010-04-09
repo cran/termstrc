@@ -1,24 +1,17 @@
 \name{rm_bond}
 \alias{rm_bond}
-\title{Remove Bonds from a Dataset }
+%- Also NEED an '\alias' for EACH other topic documented here.
+\title{Bond Removal Function}
 \description{
- Specified bonds and their associated data are removed from the bond data set.
+Specified bonds and their associated data are removed from a static or dynamic bond data set
 }
 \usage{
-rm_bond(bdata, ISIN, gr)
+rm_bond(bonddata, group, ISIN)
 }
 
 \arguments{
-  \item{bdata}{bond data set. }
-  \item{ISIN}{the ISIN numbers of the bonds to remove. }
-  \item{gr}{the group  where the bonds to be removed belong to.}
+  \item{bonddata}{bond data set of the class \command{"couponbond"} or \command{"dyncouponbond"}}
+  \item{group}{the group where the bonds to be removed belong to.}
+  \item{ISIN}{the ISIN numbers of the bonds to remove.
 }
-%\details{}
-\value{The function returns the new bond data set.}
-%\references{  }
-%\author{ Robert Ferstl, Josef Hayden }
-%\note{ }
-%\seealso{}
-%\examples{}
-
-
+}

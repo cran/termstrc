@@ -1,5 +1,6 @@
-euro01          Nelson/Siegel estimation for Germany, Austria and Italy
-euro02          Cubic splines estimation for Germany, Austria and Italy
-euro03	     Nelson/Siegel estimation for Germany, France, Belgium and Spain
-
+zeroyields          Term structure estimation based on a dynamic zero yields data set
+csplines            Cubic splines term structure estimation
+nss_static          Static term structure estimation based on coupon bonds with the Nelson/Siegel method
+nss_dynamic         Dynamic term structure estimation based on coupon bonds with the Diebold/Li method 
+ 
 

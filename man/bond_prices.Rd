@@ -1,39 +1,50 @@
 \name{bond_prices}
+\Rdversion{1.1}
 \alias{bond_prices}
 
-\title{Bond Price Calculation }
-\description{
-  Function for the calculation of bond prices according to the chosen approach 
-  (Nelson and Siegel or Svensson) based on the cashflows and maturities of the bonds. 
-  
+\title{Bond Price Calculation}
+
+\description{Function for the calculation of bond prices according to the chosen approach (Diebold/Li, Nelson/Siegel, Svensson) based on the cashflows and maturities matrix of the bonds.
 }
+
+
+
+
+
 \usage{
-bond_prices(method = "Nelson/Siegel", beta, m, cf)
+bond_prices(method = "ns", beta, m, cf, lambda)
 }
 
 \arguments{
-  \item{method}{ defines the desired method,  \code{"Nelson/Siegel"} for the Nelson/Siegel approach
-  		or \code{"Svensson"} for the Svensson approach.}
+  \item{method}{ defines the desired method: \code{"ns"} for the Nelson/Siegel,\code{"dl"} for Diebold/Li, \code{"sv"} for the Svensson approach.}
   \item{beta}{parameter vector, is linked to the chosen approach.}
-  \item{m}{maturities matrix, consists
-  of the maturity dates which are appended to the cashflows of the bonds.}
+  \item{m}{maturities matrix, consists of the maturity dates which are appended to the cashflows of the bonds.}
   \item{cf}{ cashflows matrix.}
- }
-%\details{}
-\value{
+  \item{lambda}{additional parameter for the \code{"dl"} spot rate function }
   
-  Returns a list with:
-  
-  \item{spot_rates}{spot rates.}
-  \item{discount_factors}{discount factors.}
-  \item{bond_prices}{bond prices.}
+
 }
 
-%\references{}
-%\author{ Robert Ferstl, Josef Hayden }
-%\note{  }
-\seealso{ \code{\link{svensson}}, \code{\link{nelson_siegel}}}
+\value{ 
+  Returns a list with:
+  \item{spot_rates}{spot rates matrix}
+  \item{discount_factors}{discount factors matrix}
+  \item{bond_prices}{bond prices vector}
+}
 
-%\examples{}
+
+
+\seealso{ \code{\link{spotrates}}}
+
+\examples{
+data(govbonds)
+cf <- create_cashflows_matrix(govbonds[[1]])
+m <- create_maturities_matrix(govbonds[[1]])
+beta <- c(0.0511,-0.0124,-0.0303,2.5429)
+bond_prices(method="ns",beta,m,cf)$bond_prices
+}
+
+
+
 
 
