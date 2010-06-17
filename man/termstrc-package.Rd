@@ -10,7 +10,7 @@ Zero-coupon Yield Curve Estimation
 
 
 \description{
-The package offers parametric and spline-based methods for the estimation of zero-coupon yield curves out of observed coupon bond data and zero yields. The methods include Nelson and Siegel (1987), Svensson (1994), Diebold/Li (2006) and the cubic splies approach of McCulloch (1975). Functions for the iterative estimation of the term structue based on a dynamic bond or yield data set are included. Extensive summary statistics and plots are provided to compare the results of the different estimation methods.
+The package offers a wide range of functions for term structure estimation based on static and dynamic coupon bond and yield data sets. The implementation focuses on the cubic splines approach of McCulloch (1971, 1975) and the Nelson and Siegel (1987) method with extensions by Svensson (1994), Diebold and Li (2006) and De Pooter (2007). We propose a weighted constrained optimization procedure with analytical gradients and a globally optimal start parameter search algorithm. Extensive summary statistics and plots are provided to compare the results of the different estimation methods. Several demos are available using data from European government bonds and yields. 
 
 }
 
