@@ -1,10 +1,10 @@
-\name{GermanBonds}
-\alias{GermanBonds}
+\name{datadyncouponbonds}
+\alias{datadyncouponbonds}
 \docType{data}
 \title{German Government Bond Data Set}
 \description{Dynamic German government coupon bond data set }
 
-\usage{data(GermanBonds)}
+\usage{data(datadyncouponbonds)}
 
 
 \note{

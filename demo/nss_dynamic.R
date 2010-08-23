@@ -1,6 +1,6 @@
 oldpar <- par(no.readonly = TRUE)
 
-data(GermanBonds)
+data(datadyncouponbonds)
 
 ## Diebold/Li estimation
 dl_res <- estim_nss(datadyncouponbonds, c("GERMANY"), method = "dl", lambda = 1/3)

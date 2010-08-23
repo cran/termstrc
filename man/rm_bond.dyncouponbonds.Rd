@@ -20,6 +20,6 @@
 
 
 \examples{
-data(GermanBonds)
+data(datadyncouponbonds)
 newdynbonddata <- rm_bond(datadyncouponbonds,"GERMANY","DE0001135150")
 }
