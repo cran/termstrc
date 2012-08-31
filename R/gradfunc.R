@@ -165,14 +165,20 @@ grad_dl_bonds <- function(beta, lambda, m, cf, w, p){
    c(gbeta1,gbeta2,gbeta3)
 }
 
-### Faster version of column sums
+### was a Faster version of column sums
 cSums <- function (x, na.rm = FALSE, dims = 1L) {
-    dn <- dim(x)
-    n <- prod(dn[1L:dims])
-    dn <- dn[-(1L:dims)]
-    z <-  .Internal(colSums(x, n, prod(dn), na.rm))
-    z
+
+  colSums(x, na.rm = na.rm, dims = dims )
+
+##    dn <- dim(x)
+##    n <- prod(dn[1L:dims])
+##    dn <- dn[-(1L:dims)]
+##    z <-  .Internal(colSums(x, n, prod(dn), na.rm))
+##    z
 }
+
+
+
 
 ### Gradient of Nelson/Siegel loss function for yields
 grad_ns <- function(beta, m, y)

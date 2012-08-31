@@ -8,7 +8,7 @@ print.termstrc_cs <- function(x,...) {
   cat("---------------------------------------------------\n")
   for(i in seq(x$n_group)) {
     print(paste(names(x$alpha)[[i]],":",sep=""))
-    cs_coef <- if(x$rse) coeftest(x$regout[[i]],vcov=vcovHAC.default) else summary(x$regout[[i]])
+    cs_coef <- if(x$rse) coeftest(x$regout[[i]],varcovvar=vcovHAC.default) else summary(x$regout[[i]])
     if(x$rse) rownames(cs_coef) <- paste("alpha",c(seq_along(x$alpha[[i]]))) else
      rownames(cs_coef$coefficients) <- paste("alpha",c(seq_along(x$alpha[[i]])))
    print(cs_coef)
