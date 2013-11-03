@@ -2,7 +2,10 @@ useDynLib(termstrc, objfct_ns_bonds_Cpp, objfct_ns_bonds_gridCpp, objfct_sv_bond
 
 importFrom(urca, ur.df)
 import(sandwich)
-
+import(lmtest)
+import(zoo)
+import(rgl)
+import(Rcpp)
 
 S3method(estim_cs, couponbonds)
 S3method(estim_nss, couponbonds) 

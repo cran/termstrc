@@ -8,7 +8,8 @@ The algorithm searches for the parameters over a grid spanned over tau1 (tau2).
 
 
 \usage{
-findstartparamyields(y,m, method, tauconstr, control = list(), outer.iterations = 30, outer.eps = 1e-04)
+findstartparamyields(y,m, method, tauconstr, 
+control = list(), outer.iterations = 30, outer.eps = 1e-04)
 }
 \arguments{
   \item{y}{yields

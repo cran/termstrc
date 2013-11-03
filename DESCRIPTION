@@ -1,8 +1,8 @@
 Package: termstrc
 Type: Package
 Title: Zero-coupon Yield Curve Estimation
-Version: 1.3.5
-Date: 2012-08-31
+Version: 1.3.7
+Date: 2013-11-03
 Author: Robert Ferstl, Josef Hayden
 Maintainer: Josef Hayden <josef.hayden@gmail.com>
 Description: The package offers a wide range of functions for term
@@ -19,10 +19,14 @@ Description: The package offers a wide range of functions for term
         bonds and yields.
 URL: http://R-Forge.R-project.org/projects/termstrc/
 LazyLoad: yes
-Depends: R (>= 2.12.0), Rcpp (>= 0.8.8), zoo, rgl, lmtest
-Imports: urca, sandwich
+Depends: R (>= 3.0.0)
+Imports: lmtest, Rcpp (>= 0.10.6), rgl, sandwich, urca, zoo
 LinkingTo: Rcpp
 License: GPL (>= 2)
-Packaged: 2012-08-31 17:38:24 UTC; hornik
+Packaged: 2013-11-03 19:15:41 UTC; rforge
 Repository: CRAN
-Date/Publication: 2012-08-31 17:42:01
+Repository/R-Forge/Project: termstrc
+Repository/R-Forge/Revision: 637
+Repository/R-Forge/DateTimeStamp: 2013-11-03 18:53:03
+Date/Publication: 2013-11-04 20:20:11
+NeedsCompilation: yes

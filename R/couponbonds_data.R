@@ -77,13 +77,14 @@ rm_bond.couponbonds <- function(bonddata, group, ISIN){
  	isin_index <- which(bonddata[[group]]$ISIN %in% ISIN)	
     	bonddata[[group]]$ISIN <-  bonddata[[group]]$ISIN[-isin_index]
     	bonddata[[group]]$MATURITYDATE <- bonddata[[group]]$MATURITYDATE[-isin_index]
-    	bonddata[[group]]$STARTDATE <- bonddata[[group]]$STARTDATE[-isin_index]
+    	bonddata[[group]]$ISSUEDATE <- bonddata[[group]]$ISSUEDATE[-isin_index]
     	bonddata[[group]]$COUPONRATE <- bonddata[[group]]$COUPONRATE[-isin_index]
     	bonddata[[group]]$PRICE <- bonddata[[group]]$PRICE[-isin_index]
     	bonddata[[group]]$ACCRUED <- bonddata[[group]]$ACCRUED[-isin_index]
         bonddata[[group]]$CASHFLOWS$ISIN <- bonddata[[group]]$CASHFLOWS$ISIN[-cf_isin_index]
         bonddata[[group]]$CASHFLOWS$CF <- bonddata[[group]]$CASHFLOWS$CF[-cf_isin_index]
         bonddata[[group]]$CASHFLOWS$DATE <- bonddata[[group]]$CASHFLOWS$DATE[-cf_isin_index]
+     
 	
 	class(bonddata) <- "couponbonds"
         bonddata

@@ -25,7 +25,7 @@ str(govbonds)
 
 ISIN <- vector()
 MATURITYDATE <- vector()
-STARTDATE <- vector()
+ISSUEDATE <- vector()
 COUPONRATE <- vector()
 PRICE <- vector()
 ACCRUED <- vector()
@@ -39,19 +39,20 @@ names(CASHFLOWS) <- c("ISIN","CF","DATE")
 
 TODAY <- vector()
 
-mycountry1 <- list(ISIN,MATURITYDATE,STARTDATE,
+mycountry1 <- list(ISIN,MATURITYDATE,ISSUEDATE,
                    COUPONRATE,PRICE,ACCRUED,CASHFLOWS,TODAY)
-mycountry2 <- list(ISIN,MATURITYDATE,STARTDATE,
+mycountry2 <- list(ISIN,MATURITYDATE,ISSUEDATE,
                    COUPONRATE,PRICE,ACCRUED,CASHFLOWS,TODAY)
 
-names(mycountry1) <- c("ISIN","MATURITYDATE","STARTDATE","COUPONRATE",
+names(mycountry1) <- c("ISIN","MATURITYDATE","ISSUEDATE","COUPONRATE",
                        "PRICE","ACCRUED","CASHFLOWS","TODAY")
-names(mycountry2) <- c("ISIN","MATURITYDATE","STARTDATE","COUPONRATE",
+names(mycountry2) <- c("ISIN","MATURITYDATE","ISSUEDATE","COUPONRATE",
                        "PRICE","ACCRUED","CASHFLOWS","TODAY")
 
 mybonds <- list(mycountry1,mycountry2)
 
 names(mybonds) <- c("mycountry1","mycountry2")
+class(mybonds) <- "couponbonds"
 
 }
 

@@ -73,7 +73,7 @@ The Tax-Adjusted Yield Curve.
 
   \command{\link{estim_nss.couponbonds}},  \command{\link{plot.spot_curves}},  \command{\link{plot.s_curves}},  \command{\link{plot.df_curves}}, 
 
-\command{\link{plot.fwr_curves}},  \command{\link{plot.error}},  \command{\link{summary.lm}},  \command{\link{print.lm}},  \command{\link{plot.lm}}.}
+\command{\link{plot.fwr_curves}},  \command{\link{plot.error}},  \command{\link{summary.lm}},  \command{\link{plot.lm}}.}
 
 \examples{
 # load data set

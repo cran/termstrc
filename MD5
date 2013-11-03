@@ -1,8 +1,8 @@
-900aeff8b05173ac8b1dd3873b72a3ea *DESCRIPTION
-9948b5e7cd4b5c44918d96ab8e475986 *NAMESPACE
+ef74ac98e353b3f445c766df8adb023d *DESCRIPTION
+b79f0a7cca67f1cfd0e3a997724832c8 *NAMESPACE
 df7ad9ba33e33c7317a3412418ba6a62 *R/bondpricing.R
-6da03ebada5b13e8f8fa11c4c13f5300 *R/couponbonds_data.R
-720660d4ed557df8b179f57e6be5b301 *R/create_cf_m.R
+ed26bc2170c9d927aa340f1cfe1b3719 *R/couponbonds_data.R
+7e95f1ca6ff9934cfdb1fd1a70313bf9 *R/create_cf_m.R
 4a7b894ee71fec1e1387d43f958a65fd *R/cubicfunc.R
 fab7b4cd60794f9e02967fae97ef6738 *R/estim_cs.R
 11a1115f702d509a9b9544f18a76416c *R/estim_nss_couponbonds.R
@@ -19,8 +19,8 @@ d0e90f6ee99a9b8de3e13f02a8c7b237 *R/methods_dyntermstrc_param.R
 510a22aa1f71c8c25061a781ed8a399c *R/methods_termstrc_nss.R
 736d43e33e8ccb16b54437d3de1f8b02 *R/methods_zeroyields.R
 022bbb6398fa9cb38b35bc4ef502cbe3 *R/spotfwdratedef.R
-7b3f442672a6be5a023ade62a7c9a258 *data/datadyncouponbonds.RData
-646b6884dc1c34af92c3279cf47d4a17 *data/govbonds.RData
+02c2cc9da9d92f3b24ac69924f010539 *data/datadyncouponbonds.RData
+c81f207cb6b3bb13e6e6efc841f629b2 *data/govbonds.RData
 6ba89f095c338a9e2931445a77c79b31 *data/zyields.csv.xz
 cc1dbd00864fc923289c22345a145bae *demo/00Index
 158a7cfe34119a42fbdd91b8338d5116 *demo/csplines.R
@@ -37,7 +37,7 @@ b1981d2b8d676c1f281cd93272d2315d *man/bond_yields.Rd
 7ae212fb55eb998106c97b877135ab6a *man/datadyncouponbonds.Rd
 b502451c2adc670500989cec65b37fbc *man/duration.Rd
 292cba532533acd2cce92e68b58f7e8b *man/estim_cs.Rd
-8a2cf8bb543db935e796479a61360dc0 *man/estim_cs.couponbonds.Rd
+ed2dd2c255308f7db85a0e850c9437a1 *man/estim_cs.couponbonds.Rd
 c032c7c01735bc7dd887a87689aa445a *man/estim_nss.Rd
 346557b42552320d893ec0f83b9792db *man/estim_nss.couponbonds.Rd
 2e9feed6a46e521648d69341147bcc50 *man/estim_nss.dyncouponbonds.Rd
@@ -47,7 +47,7 @@ d8e2d06ab24d7ab3c3e2e8779ae5dbd1 *man/estimateyieldcurve.Rd
 7191d5e6cbdefe0e142496158fad804c *man/fcontrib.Rd
 8a18b6218ba1df0b370700baa61a44a3 *man/fcontrib.dyntermstrc_param.Rd
 f29361d758f8f03d3e2d6189dade334c *man/findstartparambonds.Rd
-03111c5c4775c4c1cde6ef1a0d2e29a9 *man/findstartparamyields.Rd
+bc646bd775d0a0866c622e841a331176 *man/findstartparamyields.Rd
 8b1aa7279214c5ecbeb5c9a0154cb65b *man/forwardrates.Rd
 a78e1262ca940cab0b02c7655427d8a6 *man/fwr_asv.Rd
 47840fa0f5d4c1b6117cde1165cc0361 *man/fwr_dl.Rd
@@ -61,7 +61,7 @@ d5f587838b64da441894c3abc72b5baf *man/get_objfct_bonds.Rd
 52881163aac5b726e061ab62e7750292 *man/get_paramnames.Rd
 9a53ccd391dec58eac28b3563a623f73 *man/get_realnames.Rd
 a052bc306d6bd3cf704b80b994700fdc *man/gi.Rd
-4aded1957068e5575862fe4a741e4f32 *man/govbonds.Rd
+56880163c96aeb150ada03b530e242d2 *man/govbonds.Rd
 b07442b00c45920e754cf042f04581a3 *man/grad_asv.Rd
 c7d4cbb77664c572532963969f9757f1 *man/grad_asv_bonds.Rd
 bb681f3e9c6c1bb840eee41f68eb7db1 *man/grad_asv_bonds_grid.Rd
